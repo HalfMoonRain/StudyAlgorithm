@@ -1,31 +1,33 @@
 package com.company;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 
 public class Main {
 
-    public String solution(String str){
-        String answer = "";
-        int m = Integer.MIN_VALUE, pos;
-        while((pos=str.indexOf(" "))!= -1){
-            String tmp = str.substring(0, pos);
-            int len = tmp.length();
-            if (len > m) {
-                m = len;
-                answer = tmp;
-            }
-            str = str.substring(pos + 1);
+    public ArrayList<String> solution(int n, String[] str){
+        ArrayList<String> answer = new ArrayList<>();
+        for (String x : str) {
+            String tmp = new StringBuilder(x).reverse().toString();
+            answer.add(tmp);
         }
-        if(str.length()>m) answer = str;
+
         return answer;
     }
 
     public static void main(String[] args) {
         Main T = new Main();
         Scanner kb = new Scanner(System.in);
-        String str = kb.nextLine();
-        System.out.println(T.solution(str));
+        int n = kb.nextInt();
+        String[] str = new String[n];
+        for (int i = 0; i < n; i++) {
+            str[i] = kb.next();
+        }
+        for (String x : T.solution(n, str)) {
+            System.out.println(x);
+
+        }
 
     }
 }
