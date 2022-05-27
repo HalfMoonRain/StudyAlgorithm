@@ -1,17 +1,19 @@
 package com.company;
 
 
+import java.util.Locale;
 import java.util.Scanner;
 
 
 public class Main {
 
     public String solution(String str){
-        String answer = "";
-        for (int i = 0; i < str.length(); i++) {
-        //    System.out.println(str.charAt(i)+""+i+""+str.indexOf(str.charAt(i)));
-            if(str.indexOf(str.charAt(i))==i){
-                answer += str.charAt(i);
+        String answer = "YES";
+        str = str.toUpperCase();
+        int len = str.length();
+        for (int i = 0; i < len / 2; ++i) {
+            if (str.charAt(i) != str.charAt(len - i - 1)) {
+                answer = "NO";
             }
         }
         return answer;
