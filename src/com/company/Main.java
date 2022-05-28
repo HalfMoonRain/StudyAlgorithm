@@ -7,13 +7,10 @@ import java.util.Scanner;
 
 public class Main {
 
-    public String solution(String s){
-
-        String answer = "NO";
-        s = s.toUpperCase().replaceAll("[^A-Z]", "");
-        String tmp = new StringBuilder(s).reverse().toString();
-        if (s.equals(tmp)) {
-            answer = "YES";
+    public int solution(String s){
+        int answer = 0;
+        for(char x : s.toCharArray()){
+            if(x>48 && x <=57) answer = answer * 10 + (x - 48);
         }
         return answer;
     }
@@ -21,7 +18,7 @@ public class Main {
     public static void main(String[] args) {
         Main T = new Main();
         Scanner kb = new Scanner(System.in);
-        String str = kb.nextLine();
+        String str = kb.next();
         System.out.println(T.solution(str));
 
     }
